@@ -1,0 +1,163 @@
+ // Select all input elements for varification
+const name = document.getElementById("fname");
+const email = document.getElementById("email");
+const password = document.getElementById("pass");
+//const aadharno = document.getElementById("aadharno");
+const conpass = document.getElementById("repass");
+var regexp=/^[2-9]{1}[0-9]{3}\s{1}[0-9]{4}\s{1}[0-9]{4}$/;
+var x=document.getElementById("aadhaarno").value;
+// function for form varification
+function formValidation() {
+  alert("Success");
+  // checking name length
+  if (name.value.length < 2 || name.value.length > 20) {
+    alert("Name length should be more than 2 and less than 21");
+    name.focus();
+    return false;
+  }
+  // checking email
+  if (email.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+    alert("Please enter a valid email!");
+    email.focus();
+    return false;
+  }
+  // checking password
+  if (!password.value.match(/^.{5,15}$/)) {
+    alert("Password length must be between 5-15 characters!");
+    password.focus();
+    return false;
+  }
+   if(password != conpass)
+		{
+			alert ('Password not Matched');
+            password.focus();
+            return false;
+		}
+        if(regexp.test(x))
+               {
+                   window.alert("Valid Aadhar no.");
+                   
+               }
+        else{ window.alert("Invalid Aadhar no.");
+              }
+  // checking phone number
+  if (!phoneNumber.value.match(/^[1-9][0-9]{9}$/)) {
+    alert("Phone number must be 10 characters long number and first digit can't be 0!");
+    phoneNumber.focus();
+    return false;
+  }
+ 
+  }
+  return true;
+
+
+
+
+
+
+  function registration()
+	{
+
+		var name= document.getElementById("fname").value;
+		var pwd= document.getElementById("pass").value;			
+		var cpwd= document.getElementById("repass").value;
+        var email= document.getElementById("email").value;
+		var aadharno= document.getElementById("aadharno").value;
+		
+        //email id expression code
+		var pwd_expression = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
+		var letters = /^[A-Za-z]+$/;
+		var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        var regexp=/^[2-9]{1}[0-9]{3}\s{1}[0-9]{4}\s{1}[0-9]{4}$/;
+      
+		if(name=='')
+		{
+			alert('Please enter your name');
+		}
+		else if(!letters.test(name))
+		{
+			alert('Name field required only alphabet characters');
+		}
+		else if(email=='')
+		{
+			alert('Please enter your user email id');
+		}
+		else if (!filter.test(email))
+		{
+			alert('Invalid email');
+		}
+		
+		else if(pwd=='')
+		{
+			alert('Please enter Password');
+		}
+		else if(cpwd=='')
+		{
+			alert('Enter Confirm Password');
+		}
+		else if(!pwd_expression.test(pwd))
+		{
+			alert ('Upper case, Lower case, Special character and Numeric letter are required in Password filed');
+		}
+		else if(pwd != cpwd)
+		{
+			alert ('Password not Matched');
+		}
+		else if(document.getElementById("pass").value.length < 6)
+		{
+			alert ('Password minimum length is 6');
+		}
+		else if(document.getElementById("pass").value.length > 12)
+		{
+			alert ('Password max length is 12');
+		}
+        else if(aadharno=='')
+		{
+			alert('Please enter the aadharno.');
+		}
+        else if(!regexp.test(aadharno))
+               {
+                  
+                   alert("Invalid Aadhar no.");
+               }
+             
+		else
+		{				                            
+               alert('Succesfully Registered');
+			  
+			   window.location = "http://www.campuslife.co.in"; 
+		}
+	}
+	function clearFunc()
+	{
+		document.getElementById("fname").value="";
+		document.getElementById("pass").value="";
+		document.getElementById("email").value="";
+		document.getElementById("aadharno").value="";
+		document.getElementById("repass").value="";
+		
+	}
+
+
+
+$( document ).ready(function() {
+    var arr = ['bg_1.jpg','bg_2.jpg','bg_3.jpg'];
+    
+    var i = 0;
+    setInterval(function(){
+        if(i == arr.length - 1){
+            i = 0;
+        }else{
+            i++;
+        }
+        var img = 'url(../assets/images/'+arr[i]+')';
+        $(".full-bg").css('background-image',img); 
+     
+    }, 4000)
+
+});
+
+
+
+
+
